@@ -1,8 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeroBlock from './components/HeroBlock.vue'
+</script>
 
 <template>
-  <h1>Portfolio</h1>
-  <p>WIP</p>
+  <HeroBlock />
 </template>
 
 <style scoped></style>
