@@ -1,0 +1,32 @@
+/* CRT effect styles (For main background) */
+.crt-effect {
+  background:
+    linear-gradient(to top, #000000, #000000, transparent, transparent),
+    radial-gradient(
+      circle 120vh at 70% -20%,
+      var(--crt-bloom-color) 10%,
+      var(--background-primary) 80%
+    );
+  background-size:
+    100% 4px,
+    cover;
+  background-repeat: repeat, no-repeat;
+}
+
+@media screen {
+  .crt-effect {
+    animation: scanlines infinite 55s linear;
+  }
+}
+@keyframes scanlines {
+  from {
+    background-position:
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      0 -10px,
+      0 0;
+  }
+}

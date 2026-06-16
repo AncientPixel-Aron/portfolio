@@ -6,8 +6,7 @@ import FooterBlock from './components/FooterBlock.vue'
 <template>
   <HeaderBlock />
   <div class="main-content">
-    <h1>Portfolio</h1>
-    <p>Work in progress</p>
+    <RouterView />
   </div>
   <FooterBlock />
 </template>
