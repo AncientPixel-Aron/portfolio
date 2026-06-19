@@ -5,16 +5,10 @@ import FooterBlock from './components/FooterBlock.vue'
 
 <template>
   <HeaderBlock />
-  <div class="main-content">
+  <div class="main h-full p-14 uppercase">
     <RouterView />
   </div>
   <FooterBlock />
 </template>
 
-<style scoped lang="scss">
-.main-content {
-  height: 100%;
-  padding: 3.5rem;
-  text-transform: uppercase;
-}
-</style>
+<style scoped lang="scss"></style>

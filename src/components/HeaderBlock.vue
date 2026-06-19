@@ -7,7 +7,7 @@ const updateTime = () => {
   currentTime.value = new Date().toLocaleTimeString('nl-NL')
 }
 
-let interval: number | undefined
+let interval: ReturnType<typeof setInterval>
 
 onMounted(() => {
   updateTime()
@@ -20,54 +20,25 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="header">
-    <div class="text start">Security Software V1</div>
-    <span class="divider"></span>
-    <div class="text middle full">Terminal Access Screen</div>
-    <span class="divider"></span>
-    <div class="text end">{{ currentTime }}</div>
+  <div
+    class="flex flex-col border border-[var(--color-primary)] text-[var(--color-primary)] uppercase md:flex-row md:flex-nowrap md:items-center md:justify-between"
+  >
+    <div class="hidden md:block px-4 py-[0.3rem] md:min-w-56 md:shrink-0 md:border-b-0 md:pr-12">
+      Security Software V1
+    </div>
+
+    <span class="hidden md:block h-full w-px bg-[var(--color-primary)]"></span>
+
+    <div class="px-4 py-[0.3rem] md:min-w-0 md:flex-1 md:border-b-0 md:pl-8 md:pr-12">
+      Terminal Access Screen
+    </div>
+
+    <span class="hidden md:block h-full w-px bg-[var(--color-primary)]"></span>
+
+    <div class="hidden md:block px-4 py-[0.3rem] md:shrink-0 md:pl-12 md:pr-12">
+      {{ currentTime }}
+    </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
-  text-transform: uppercase;
-
-  .text {
-    flex: 0 0 auto;
-    padding: 0.3rem 1rem;
-
-    &.full {
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    &.start {
-      min-width: 14rem;
-      padding-right: 3rem;
-    }
-    &.middle {
-      padding-left: 2rem;
-      padding-right: 3rem;
-    }
-    &.end {
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-  }
-}
-
-.divider {
-  display: block;
-  width: 1px;
-  height: 100%;
-  background-color: var(--color-primary);
-}
-</style>
+<style lang="scss" scoped></style>

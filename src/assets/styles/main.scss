@@ -1,24 +1,6 @@
 @use './_variables.scss' as *;
 @use './_animations.scss' as *;
 
-:root {
-  --background-primary: #{$background-primary};
-  --color-primary: #{$color-primary};
-  --font-primary: #{$font-primary};
-
-  --crt-bloom-color: #{$crt-bloom-color};
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  // text-decoration: none;
-  color: var(--color-primary);
-}
-
 html,
 body,
 #app {
@@ -32,7 +14,6 @@ body,
   box-sizing: border-box;
 
   color: var(--color-primary);
-  font-family: var(--font-primary);
 }
 
 #app {

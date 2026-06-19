@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+/* Override default theme variables */
+@theme {
+  --default-font-family: var(--font-primary);
+}

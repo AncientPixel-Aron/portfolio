@@ -1,4 +1,11 @@
-$background-primary: #121212;
-$color-primary: #89e9c3;
-$crt-bloom-color: #15201b;
-$font-primary: 'JetBrains Mono', monospace;
+:root {
+  // Background
+  --background-primary: #121212;
+
+  // Colors
+  --color-primary: #89e9c3;
+  --color-crt-bloom: #15201b;
+
+  // Font
+  --font-primary: 'JetBrains Mono', monospace;
+}
