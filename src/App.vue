@@ -8,7 +8,7 @@ import FooterBlock from './components/FooterBlock.vue'
     <HeaderBlock />
 
     <main
-      class="scrollbar-hide mx-auto flex min-h-0 w-full flex-1 flex-col items-center gap-6 overflow-y-auto md:px-20 py-6 md:py-8"
+      class="scrollbar-hide container mx-auto flex min-h-0 w-full flex-1 flex-col items-center gap-6 overflow-y-auto md:px-20 py-6 md:py-8"
     >
       <RouterView />
     </main>
