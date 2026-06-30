@@ -4,33 +4,26 @@ import FooterBlock from './components/FooterBlock.vue'
 </script>
 
 <template>
-  <div class="app-shell">
+  <div class="flex h-screen min-h-screen flex-col p-8">
     <HeaderBlock />
-    <main class="main">
-      <!-- <div class="container"> -->
+
+    <main
+      class="scrollbar-hide mx-auto flex min-h-0 w-full flex-1 flex-col items-center gap-6 overflow-y-auto md:px-20 py-6 md:py-8"
+    >
       <RouterView />
-      <!-- </div> -->
     </main>
+
     <FooterBlock />
   </div>
 </template>
 
-<style scoped lang="scss">
-.app-shell {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  min-height: 100vh;
-  padding: 2rem;
+<style scoped>
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.main {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 </style>
