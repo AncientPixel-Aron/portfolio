@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import pcImageSrc from '@/assets/images/pc-preview.jpeg'
 import ImagePreviewModal from '@/components/ImagePreviewModal.vue'
 
 type SpecItem = {
@@ -52,7 +53,6 @@ const specGroups: SpecGroup[] = [
   },
 ]
 
-const pcImageSrc = 'src/assets/images/pc-preview.jpeg'
 const pcImageAlt = 'My PC setup preview'
 const isPreviewOpen = ref(false)
 
