@@ -97,9 +97,7 @@ const openPreview = () => {
           <strong class="text-white">7TB Total</strong>
         </div>
       </div>
-      <div
-        class="group relative overflow-hidden rounded-[1.3rem] border border-white/10 bg-white-950/20"
-      >
+      <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-white-950/20">
         <button
           type="button"
           class="absolute inset-0 z-10 cursor-pointer"
