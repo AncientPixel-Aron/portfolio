@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import ImagePreviewModal from '@/components/ImagePreviewModal.vue'
+
 type SpecItem = {
   name: string
   value: string
@@ -48,6 +51,14 @@ const specGroups: SpecGroup[] = [
     ],
   },
 ]
+
+const pcImageSrc = 'src/assets/images/pc-preview.jpeg'
+const pcImageAlt = 'My PC setup preview'
+const isPreviewOpen = ref(false)
+
+const openPreview = () => {
+  isPreviewOpen.value = true
+}
 </script>
 
 <template>
@@ -65,24 +76,49 @@ const specGroups: SpecGroup[] = [
       </p>
     </div>
 
-    <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-      <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
-        <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">CPU</span>
-        <strong class="text-white">Ryzen 7 9800X3D</strong>
+    <article
+      class="grid gap-5 xl:grid-cols-[1.9fr_1fr] rounded-[1.5rem] border border-white/10 bg-white/5 p-4 backdrop-blur"
+    >
+      <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2">
+        <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
+          <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">CPU</span>
+          <strong class="text-white">Ryzen 7 9800X3D</strong>
+        </div>
+        <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
+          <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">GPU</span>
+          <strong class="text-white">RTX 5080</strong>
+        </div>
+        <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
+          <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">RAM</span>
+          <strong class="text-white">64GB DDR5</strong>
+        </div>
+        <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
+          <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">Storage</span>
+          <strong class="text-white">7TB Total</strong>
+        </div>
       </div>
-      <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
-        <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">GPU</span>
-        <strong class="text-white">RTX 5080</strong>
+      <div
+        class="group relative overflow-hidden rounded-[1.3rem] border border-white/10 bg-white-950/20"
+      >
+        <button
+          type="button"
+          class="absolute inset-0 z-10 cursor-pointer"
+          @click="openPreview"
+          aria-label="Open PC setup preview"
+        ></button>
+        <div
+          class="absolute inset-0 z-9 flex flex-col items-center justify-center gap-1 bg-black/30"
+        >
+          <p class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">Setup Preview</p>
+          <h2 class="mt-2 text-xl font-semibold text-white">Click to open full view</h2>
+        </div>
+        <img
+          :src="pcImageSrc"
+          :alt="pcImageAlt"
+          class="h-38 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
       </div>
-      <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
-        <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">RAM</span>
-        <strong class="text-white">64GB DDR5</strong>
-      </div>
-      <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 p-3">
-        <span class="text-[0.72rem] uppercase tracking-[0.2em] text-white/60">Storage</span>
-        <strong class="text-white">7TB Total</strong>
-      </div>
-    </div>
+    </article>
   </section>
 
   <section class="grid gap-4 md:grid-cols-2 w-full">
@@ -107,4 +143,11 @@ const specGroups: SpecGroup[] = [
       </ul>
     </article>
   </section>
+
+  <ImagePreviewModal
+    v-model="isPreviewOpen"
+    :src="pcImageSrc"
+    :alt="pcImageAlt"
+    title="Full PC setup preview"
+  />
 </template>
